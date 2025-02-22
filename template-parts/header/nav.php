@@ -1,7 +1,7 @@
 <?Php
 /**
  * Navigation template
- * @package WPTB
+ * @package DS
  */
 ?>
 <h1>Navbar Functionality</h1>
@@ -9,9 +9,9 @@
       the_custom_logo();
     } 
 
-    if(has_nav_menu('wptb-header-menu')){
+    if(has_nav_menu('ds-header-menu')){
       wp_nav_menu([
-          'theme_location'=>'wptb-header-menu',
+          'theme_location'=>'ds-header-menu',
           'container'=>'',
           'depth'=> 0,
           'items_wrap'=>'<ul class="navbar-nav ms-auto">%3$s</ul>',

@@ -1,13 +1,13 @@
 <?php
 /**
  * Bootstraps the Theme
- * @package WPTB
+ * @package DS
  */
-namespace WPTB_THEME\Inc;
+namespace DS_THEME\Inc;
 
-use WPTB_THEME\Inc\Traits\Singleton;
+use DS_THEME\Inc\Traits\Singleton;
 
-class WPTB_THEME
+class DS_THEME
 {
     use Singleton;
     protected function __construct()

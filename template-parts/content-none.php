@@ -1,10 +1,10 @@
 <?php
 /**
  * Template part for displaying message that the post cannot be found!
- * @package WPTB
+ * @package DS
  */
 ?>
-<?php esc_html_e('Nothing Found!', 'wptb'); ?>
+<?php esc_html_e('Nothing Found!', 'ds'); ?>
 
 <?php
 if (is_home() && current_user_can('publish_posts')) {

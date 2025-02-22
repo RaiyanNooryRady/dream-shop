@@ -1,12 +1,12 @@
 <?php
 /**
  * Register menus
- * @package WPTB
+ * @package DS
  */
 
-namespace WPTB_THEME\Inc;
+namespace DS_THEME\Inc;
 
-use WPTB_THEME\Inc\Traits\Singleton;
+use DS_THEME\Inc\Traits\Singleton;
 
 class Menus
 {
@@ -27,8 +27,8 @@ class Menus
     public function register_menus()
     {
         register_nav_menus([
-            'wptb-header-menu' => esc_html__('Header Menu','wptb'),
-            'wptb-footer-menu' => esc_html__('Footer Menu','wptb')
+            'ds-header-menu' => esc_html__('Header Menu','ds'),
+            'ds-footer-menu' => esc_html__('Footer Menu','ds')
         ]);
     }
     public function get_menu_id($location){

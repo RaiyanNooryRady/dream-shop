@@ -1,7 +1,7 @@
 <?php
 /**
  * Header template
- * @package WPTB
+ * @package DS
  */
 ?>
 <!DOCTYPE html>
@@ -18,4 +18,5 @@
     if (function_exists('wp_body_open')) {
         wp_body_open();
     } ?>
+    <header>header</header>
 <?php get_template_part('template-parts/header/nav'); ?>

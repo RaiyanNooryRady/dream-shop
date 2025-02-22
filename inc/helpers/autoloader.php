@@ -2,10 +2,10 @@
 /**
  * Autoloader file for theme.
  *
- * @package WPTB
+ * @package DS
  */
 
-namespace WPTB_THEME\Inc\Helpers;
+namespace DS_THEME\Inc\Helpers;
 
 /**
  * Auto loader function.
@@ -14,23 +14,34 @@ namespace WPTB_THEME\Inc\Helpers;
  *
  * @return void
  */
+
+
 function autoloader( $resource = '' ) {
 	$resource_path  = false;
-	$namespace_root = 'WPTB_THEME\\';
+	$namespace_root = 'DS_THEME\\';
 	$resource       = trim( $resource, '\\' );
 
 	if ( empty( $resource ) || strpos( $resource, '\\' ) === false || strpos( $resource, $namespace_root ) !== 0 ) {
 		// Not our namespace, bail out.
 		return;
 	}
-
 	// Remove our root namespace.
 	$resource = str_replace( $namespace_root, '', $resource );
+
+	//Test
+	echo $resource. '<br>';
+	//Test end
 
 	$path = explode(
 		'\\',
 		str_replace( '_', '-', strtolower( $resource ) )
 	);
+
+	//Test
+	foreach($path as $p){
+		echo $p. " ";
+	}
+	//Test end
 
 	/**
 	 * Time to determine which type of resource path it is,
@@ -48,6 +59,7 @@ function autoloader( $resource = '' ) {
 			case 'traits':
 				$directory = 'traits';
 				$file_name = sprintf( 'trait-%s', trim( strtolower( $path[2] ) ) );
+				echo 'ab'. $path[2] . 'cd';
 				break;
 
 			case 'widgets':
@@ -67,7 +79,7 @@ function autoloader( $resource = '' ) {
 				break;
 		}
 
-		$resource_path = sprintf( '%s/inc/%s/%s.php', untrailingslashit( WPTB_DIR_PATH ), $directory, $file_name );
+		$resource_path = sprintf( '%s/inc/%s/%s.php', untrailingslashit( DS_DIR_PATH ), $directory, $file_name );
 
 	}
 
@@ -82,4 +94,4 @@ function autoloader( $resource = '' ) {
 	}
 }
 
-spl_autoload_register( '\WPTB_THEME\Inc\Helpers\autoloader' );
+spl_autoload_register( '\DS_THEME\Inc\Helpers\autoloader' );

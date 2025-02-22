@@ -1,12 +1,12 @@
 <?php
 /**
  * Register metaboxes
- * @package WPTB
+ * @package DS
  */
 
-namespace WPTB_THEME\Inc;
+namespace DS_THEME\Inc;
 
-use WPTB_THEME\Inc\Traits\Singleton;
+use DS_THEME\Inc\Traits\Singleton;
 
 class Meta_Boxes
 {
@@ -32,7 +32,7 @@ class Meta_Boxes
         foreach ($screens as $screen) {
             add_meta_box(
                 'hide-page-title', // Unique ID
-                __('Hide Page Title', 'WPTB'), // Box title
+                __('Hide Page Title', 'DS'), // Box title
                 [$this, 'custom_meta_box_html'], // Content callback, must be of type callable
                 $screen, // Post type
                 'side'
@@ -47,11 +47,11 @@ class Meta_Boxes
          */
         wp_nonce_field(plugin_basename(__FILE__),'_hide_title_metabox_nonce_name');
         ?>
-        <label for="wptb-field"><?php esc_html_e('Hide the page title', 'wptb'); ?></label>
-        <select name="wptb_hide_title_field" id="wptb-field" class="postbox">
-            <option value=""><?php esc_html_e('Select', 'wptb'); ?></option>
-            <option value="yes" <?php selected($value, 'yes'); ?>><?php esc_html_e('yes', 'wptb'); ?></option>
-            <option value="no" <?php selected($value, 'no'); ?>><?php esc_html_e('no', 'wptb'); ?></option>
+        <label for="ds-field"><?php esc_html_e('Hide the page title', 'ds'); ?></label>
+        <select name="ds_hide_title_field" id="ds-field" class="postbox">
+            <option value=""><?php esc_html_e('Select', 'ds'); ?></option>
+            <option value="yes" <?php selected($value, 'yes'); ?>><?php esc_html_e('yes', 'ds'); ?></option>
+            <option value="no" <?php selected($value, 'no'); ?>><?php esc_html_e('no', 'ds'); ?></option>
         </select>
         <?php
     }
@@ -69,11 +69,11 @@ class Meta_Boxes
         if(!isset($_POST['_hide_title_metabox_nonce_name']) || ! wp_verify_nonce($_POST['_hide_title_metabox_nonce_name'],plugin_basename(__FILE__))){
             return;
         }
-        if ( array_key_exists( 'WPTB_hide_title_field', $_POST ) ) {
+        if ( array_key_exists( 'DS_hide_title_field', $_POST ) ) {
             update_post_meta(
                 $post_id,
                 '_hide_page_title',
-                $_POST['WPTB_hide_title_field']
+                $_POST['DS_hide_title_field']
             );
         }
     }

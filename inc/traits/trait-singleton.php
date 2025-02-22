@@ -1,5 +1,5 @@
 <?php
-namespace WPTB_THEME\Inc\Traits;
+namespace DS_THEME\Inc\Traits;
 
 trait Singleton{
     public function __construct(){
@@ -13,7 +13,7 @@ trait Singleton{
         $called_class= get_called_class();
         if(!isset($instance[$called_class])){
             $instance[$called_class] = new $called_class();
-            do_action(sprintf('wptb_theme_singleton_init%s',$called_class));
+            do_action(sprintf('ds_theme_singleton_init%s',$called_class));
         }
         return $instance[$called_class];
     }
